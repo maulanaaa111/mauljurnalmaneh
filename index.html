@@ -59,7 +59,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased overflow-x-hidden">
 
     <!-- Screen Halaman Login & Registrasi (Gatekeeper) -->
     <div id="auth-container" class="min-h-screen flex items-center justify-center p-4 bg-darkBg relative overflow-hidden">
@@ -68,12 +68,12 @@
         <div class="absolute bottom-1/4 right-1/4 w-82 h-82 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
         <!-- Kartu Formulir Login/Register -->
-        <div class="w-full max-w-md bg-darkCard/80 backdrop-blur-xl border border-darkBorder p-8 rounded-2xl shadow-2xl z-10">
-            <div class="text-center mb-8">
+        <div class="w-full max-w-md bg-darkCard/80 backdrop-blur-xl border border-darkBorder p-6 md:p-8 rounded-2xl shadow-2xl z-10">
+            <div class="text-center mb-6 md:mb-8">
                 <div class="inline-flex bg-gradient-to-tr from-emerald-500 to-teal-400 p-3 rounded-2xl shadow-lg shadow-emerald-500/20 mb-3">
                     <i class="fa-solid fa-chart-line text-2xl text-white"></i>
                 </div>
-                <h2 class="text-2xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Welcome to TradeLog</h2>
+                <h2 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Welcome to TradeLog</h2>
                 <p class="text-xs text-gray-400 mt-1">Simpan dan evaluasi portofolio trading Anda secara profesional</p>
             </div>
 
@@ -128,39 +128,39 @@
     <div id="app-container" class="hidden min-h-screen flex flex-col">
         <!-- Navigation Bar -->
         <nav class="border-b border-darkBorder bg-darkCard/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-gradient-to-tr from-emerald-500 to-teal-400 p-2.5 rounded-xl shadow-lg shadow-emerald-500/20">
-                        <i class="fa-solid fa-chart-line text-lg text-white"></i>
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row gap-3 items-center justify-between">
+                <div class="flex items-center space-x-3 self-start sm:self-auto">
+                    <div class="bg-gradient-to-tr from-emerald-500 to-teal-400 p-2 rounded-xl shadow-lg shadow-emerald-500/20">
+                        <i class="fa-solid fa-chart-line text-base text-white"></i>
                     </div>
                     <div>
-                        <h1 class="text-lg font-bold tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">TradeLog Pro</h1>
-                        <p class="text-[10px] text-gray-400">Jurnal Analisis & Psikologi</p>
+                        <h1 class="text-base md:text-lg font-bold tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">TradeLog Pro</h1>
+                        <p class="text-[9px] text-gray-400">Jurnal Analisis & Psikologi</p>
                     </div>
                 </div>
                 
-                <div class="flex items-center space-x-4">
+                <div class="flex flex-wrap items-center justify-between w-full sm:w-auto gap-2 sm:gap-4">
                     <!-- Tab Navigation Button -->
-                    <div class="flex bg-slate-800/40 p-1 rounded-xl border border-darkBorder/60 text-xs font-semibold">
-                        <button onclick="switchMainTab('dashboard')" id="nav-btn-dashboard" class="px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer">
-                            <i class="fa-solid fa-gauge mr-1.5"></i>Log Transaksi
+                    <div class="flex bg-slate-800/40 p-1 rounded-xl border border-darkBorder/60 text-[10px] sm:text-xs font-semibold">
+                        <button onclick="switchMainTab('dashboard')" id="nav-btn-dashboard" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer">
+                            <i class="fa-solid fa-gauge mr-1"></i>Log Transaksi
                         </button>
-                        <button onclick="switchMainTab('mindset')" id="nav-btn-mindset" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer">
-                            <i class="fa-solid fa-brain mr-1.5"></i>Mindset & Emosi
+                        <button onclick="switchMainTab('mindset')" id="nav-btn-mindset" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer">
+                            <i class="fa-solid fa-brain mr-1"></i>Mindset & Emosi
                         </button>
                     </div>
 
-                    <div id="user-badge" class="hidden md:flex items-center space-x-2 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-darkBorder">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span id="user-id-display" class="text-xs text-gray-300 font-mono truncate max-w-[150px]">Loading User...</span>
+                    <div id="user-badge" class="hidden lg:flex items-center space-x-2 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-darkBorder">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span id="user-id-display" class="text-[10px] text-gray-300 font-mono truncate max-w-[120px]">Loading...</span>
                     </div>
                     
-                    <button onclick="openTradeModal()" class="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 transition-all text-gray-950 px-4 py-2 rounded-xl font-bold text-xs shadow-md shadow-emerald-500/10 cursor-pointer">
-                        <i class="fa-solid fa-plus text-xs"></i>
-                        <span class="hidden sm:inline">Catat Trade</span>
+                    <button onclick="openTradeModal()" class="flex items-center space-x-1.5 bg-emerald-500 hover:bg-emerald-600 active:scale-95 transition-all text-gray-950 px-3 py-1.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-500/10 cursor-pointer">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>Catat Trade</span>
                     </button>
 
-                    <button onclick="handleLogout()" title="Keluar" class="flex items-center justify-center text-gray-400 hover:text-rose-400 bg-slate-800/40 hover:bg-slate-800 border border-darkBorder/60 p-2.5 rounded-xl transition-all cursor-pointer">
+                    <button onclick="handleLogout()" title="Keluar" class="flex items-center justify-center text-gray-400 hover:text-rose-400 bg-slate-800/40 hover:bg-slate-800 border border-darkBorder/60 p-2 rounded-xl transition-all cursor-pointer">
                         <i class="fa-solid fa-right-from-bracket text-xs"></i>
                     </button>
                 </div>
@@ -168,49 +168,49 @@
         </nav>
 
         <!-- Tab 1: LOG TRADING & DASHBOARD -->
-        <main id="main-tab-dashboard-content" class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-6">
+        <main id="main-tab-dashboard-content" class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-6 overflow-x-hidden">
             
             <!-- Grid Card Statistik Ringkas -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                 <!-- Net Profit/Loss & Balance -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
                     <div class="flex items-center justify-between text-gray-400 mb-2">
-                        <span class="text-xs font-medium tracking-wider uppercase">Saldo & Net PnL</span>
-                        <button onclick="openEquityModal()" class="text-xs text-indigo-400 hover:text-indigo-300 transition-colors flex items-center space-x-1 cursor-pointer">
+                        <span class="text-[9px] sm:text-xs font-medium tracking-wider uppercase">Saldo & Net PnL</span>
+                        <button onclick="openEquityModal()" class="text-[9px] sm:text-xs text-indigo-400 hover:text-indigo-300 transition-colors flex items-center space-x-1 cursor-pointer">
                             <i class="fa-solid fa-gear"></i>
                             <span>Set Modal</span>
                         </button>
                     </div>
                     <div class="mt-1">
-                        <span id="stat-net-pnl" class="text-xl md:text-2xl font-bold text-gray-100">$0.00</span>
-                        <p id="stat-pnl-percentage" class="text-[10px] text-gray-500 mt-1 font-mono">0.00% growth</p>
-                        <p id="stat-current-balance" class="text-[9px] text-gray-400 mt-0.5 italic">Saldo: $0.00 (Modal: $0.00)</p>
+                        <span id="stat-net-pnl" class="text-lg sm:text-xl md:text-2xl font-bold text-gray-100">$0.00</span>
+                        <p id="stat-pnl-percentage" class="text-[9px] sm:text-[10px] text-gray-500 mt-1 font-mono">0.00% growth</p>
+                        <p id="stat-current-balance" class="text-[8px] sm:text-[9px] text-gray-400 mt-0.5 italic truncate">Saldo: $0.00</p>
                     </div>
                 </div>
 
                 <!-- Win Rate Bar -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
                     <div class="flex items-center justify-between text-gray-400 mb-2">
-                        <span class="text-xs font-medium tracking-wider uppercase">Win Rate</span>
-                        <i class="fa-solid fa-bullseye text-sm text-emerald-400"></i>
+                        <span class="text-[9px] sm:text-xs font-medium tracking-wider uppercase">Win Rate</span>
+                        <i class="fa-solid fa-bullseye text-xs sm:text-sm text-emerald-400"></i>
                     </div>
                     <div class="mt-1">
-                        <span id="stat-win-rate" class="text-xl md:text-2xl font-bold text-gray-100">0%</span>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+                        <span id="stat-win-rate" class="text-lg sm:text-xl md:text-2xl font-bold text-gray-100">0%</span>
+                        <div class="w-full bg-slate-800 h-1 rounded-full mt-2 overflow-hidden">
                             <div id="stat-win-rate-bar" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Trades Count -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
                     <div class="flex items-center justify-between text-gray-400 mb-2">
-                        <span class="text-xs font-medium tracking-wider uppercase">Total Trades</span>
-                        <i class="fa-solid fa-scale-balanced text-sm text-amber-400"></i>
+                        <span class="text-[9px] sm:text-xs font-medium tracking-wider uppercase">Total Trades</span>
+                        <i class="fa-solid fa-scale-balanced text-xs sm:text-sm text-amber-400"></i>
                     </div>
                     <div class="mt-1">
-                        <span id="stat-total-trades" class="text-xl md:text-2xl font-bold text-gray-100">0</span>
-                        <p class="text-[10px] text-gray-500 mt-1 font-mono">
+                        <span id="stat-total-trades" class="text-lg sm:text-xl md:text-2xl font-bold text-gray-100">0</span>
+                        <p class="text-[8px] sm:text-[10px] text-gray-500 mt-1 font-mono truncate">
                             <span id="stat-wins" class="text-emerald-400 font-bold">0 W</span> • 
                             <span id="stat-losses" class="text-rose-400 font-bold">0 L</span> •
                             <span id="stat-be" class="text-gray-400 font-bold">0 BE</span>
@@ -218,15 +218,15 @@
                     </div>
                 </div>
 
-                <!-- Profit Factor & Average Win/Loss -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
+                <!-- Profit Factor -->
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder flex flex-col justify-between shadow-xl">
                     <div class="flex items-center justify-between text-gray-400 mb-2">
-                        <span class="text-xs font-medium tracking-wider uppercase">Profit Factor</span>
-                        <i class="fa-solid fa-bolt-lightning text-sm text-amber-500"></i>
+                        <span class="text-[9px] sm:text-xs font-medium tracking-wider uppercase">Profit Factor</span>
+                        <i class="fa-solid fa-bolt-lightning text-xs sm:text-sm text-amber-500"></i>
                     </div>
                     <div class="mt-1">
-                        <span id="stat-profit-factor" class="text-xl md:text-2xl font-bold text-gray-100">0.00</span>
-                        <p id="stat-avg-win-loss" class="text-[9px] text-gray-500 mt-1 truncate">Avg: W $0.00 / L $0.00</p>
+                        <span id="stat-profit-factor" class="text-lg sm:text-xl md:text-2xl font-bold text-gray-100">0.00</span>
+                        <p id="stat-avg-win-loss" class="text-[8px] sm:text-[9px] text-gray-500 mt-1 truncate">Avg: W $0 / L $0</p>
                     </div>
                 </div>
             </div>
@@ -234,36 +234,36 @@
             <!-- Area Visualisasi Grafik Diagram -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Equity Curve Graph -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder lg:col-span-2 shadow-xl flex flex-col">
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder lg:col-span-2 shadow-xl flex flex-col">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xs font-bold text-gray-200 uppercase tracking-wider flex items-center space-x-2">
+                        <h3 class="text-[10px] sm:text-xs font-bold text-gray-200 uppercase tracking-wider flex items-center space-x-2">
                             <i class="fa-solid fa-chart-area text-indigo-400"></i>
                             <span>Kurva Ekuitas Kumulatif ($)</span>
                         </h3>
-                        <span class="text-[10px] text-gray-500 font-semibold font-mono">Real-time update</span>
+                        <span class="text-[9px] text-gray-500 font-semibold font-mono">Real-time update</span>
                     </div>
-                    <div class="relative flex-1 min-h-[200px] max-h-[260px]">
+                    <div class="relative flex-1 min-h-[180px] sm:min-h-[220px] max-h-[260px]">
                         <canvas id="equityChart"></canvas>
                     </div>
                 </div>
 
                 <!-- Win/Loss Ratio Pie -->
-                <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder shadow-xl flex flex-col justify-between">
+                <div class="bg-darkCard p-4 sm:p-5 rounded-2xl border border-darkBorder shadow-xl flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-4 flex items-center space-x-2">
+                        <h3 class="text-[10px] sm:text-xs font-bold text-gray-200 uppercase tracking-wider mb-4 flex items-center space-x-2">
                             <i class="fa-solid fa-chart-pie text-emerald-400"></i>
                             <span>Rasio Setup Outcome</span>
                         </h3>
-                        <div class="relative w-full aspect-square max-h-[140px] mx-auto mb-2">
+                        <div class="relative w-full aspect-square max-h-[120px] sm:max-h-[140px] mx-auto mb-2">
                             <canvas id="ratioChart"></canvas>
                         </div>
                     </div>
                     <div class="border-t border-darkBorder/60 pt-3 space-y-1.5">
-                        <div class="flex justify-between text-[11px]">
+                        <div class="flex justify-between text-[10px] sm:text-xs">
                             <span class="text-gray-400">Profit Terbesar:</span>
                             <span id="stat-max-win" class="text-emerald-400 font-bold font-mono">$0.00</span>
                         </div>
-                        <div class="flex justify-between text-[11px]">
+                        <div class="flex justify-between text-[10px] sm:text-xs">
                             <span class="text-gray-400">Kerugian Terbesar:</span>
                             <span id="stat-max-loss" class="text-rose-400 font-bold font-mono">$0.00</span>
                         </div>
@@ -273,20 +273,20 @@
 
             <!-- Tabel Catatan Riwayat Transaksi -->
             <div class="bg-darkCard rounded-2xl border border-darkBorder shadow-xl overflow-hidden">
-                <div class="p-5 border-b border-darkBorder/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="p-4 sm:p-5 border-b border-darkBorder/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <h3 class="text-base font-bold text-gray-100">Log Transaksi Riwayat</h3>
-                        <p class="text-xs text-gray-500 mt-0.5">Filter data trading lokal untuk menjamin kecepatan pemrosesan data</p>
+                        <h3 class="text-sm sm:text-base font-bold text-gray-100">Log Transaksi Riwayat</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">Filter data trading lokal untuk menjamin kecepatan pemrosesan data</p>
                     </div>
                     
                     <div class="flex flex-wrap items-center gap-2">
                         <!-- Search Box -->
-                        <div class="relative min-w-[150px] max-w-xs flex-1">
-                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+                        <div class="relative min-w-[130px] max-w-xs flex-1">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-[10px]"></i>
                             <input type="text" id="filter-search" placeholder="Cari Pair..." oninput="applyFilters()" class="w-full pl-8 pr-3 py-1.5 bg-slate-800 border border-darkBorder/80 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-indigo-500 transition-colors">
                         </div>
                         <!-- Status Filter -->
-                        <select id="filter-status" onchange="applyFilters()" class="px-3 py-1.5 bg-slate-800 border border-darkBorder/80 rounded-xl text-xs text-gray-300 focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                        <select id="filter-status" onchange="applyFilters()" class="px-2.5 py-1.5 bg-slate-800 border border-darkBorder/80 rounded-xl text-xs text-gray-300 focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
                             <option value="ALL">Semua Status</option>
                             <option value="WIN">Win Only</option>
                             <option value="LOSS">Loss Only</option>
@@ -294,7 +294,7 @@
                             <option value="OPEN">Open Only</option>
                         </select>
                         <!-- Type Filter -->
-                        <select id="filter-type" onchange="applyFilters()" class="px-3 py-1.5 bg-slate-800 border border-darkBorder/80 rounded-xl text-xs text-gray-300 focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                        <select id="filter-type" onchange="applyFilters()" class="px-2.5 py-1.5 bg-slate-800 border border-darkBorder/80 rounded-xl text-xs text-gray-300 focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
                             <option value="ALL">Semua Tipe</option>
                             <option value="LONG">Long (Buy)</option>
                             <option value="SHORT">Short (Sell)</option>
@@ -302,8 +302,14 @@
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
+                <!-- Mobile Swipe Hint -->
+                <div class="block md:hidden bg-slate-800/30 px-4 py-1.5 text-[9px] text-indigo-400 font-semibold border-b border-darkBorder/30">
+                    <i class="fa-solid fa-arrows-left-right mr-1"></i> Geser tabel ke kanan-kiri untuk rincian lengkap Multi-TF & emosi
+                </div>
+
+                <!-- Table Wrapper with horizontal scrolling capability -->
+                <div class="overflow-x-auto w-full">
+                    <table class="w-full text-left border-collapse min-w-[950px]">
                         <thead>
                             <tr class="bg-slate-800/40 text-gray-400 text-[10px] uppercase font-semibold tracking-wider border-b border-darkBorder/40">
                                 <th class="py-3.5 px-5">Waktu / Tanggal</th>
@@ -332,8 +338,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Left Column: Daily Mindset Logger -->
                 <div class="space-y-6 lg:col-span-1">
-                    <div class="bg-darkCard p-6 rounded-2xl border border-darkBorder shadow-xl flex flex-col">
-                        <h3 class="text-sm font-bold text-gray-100 uppercase tracking-wider mb-4 flex items-center space-x-2">
+                    <div class="bg-darkCard p-5 sm:p-6 rounded-2xl border border-darkBorder shadow-xl flex flex-col">
+                        <h3 class="text-xs sm:text-sm font-bold text-gray-100 uppercase tracking-wider mb-4 flex items-center space-x-2">
                             <i class="fa-solid fa-heart-pulse text-rose-500"></i>
                             <span>Daily Mindset Check-in</span>
                         </h3>
@@ -341,7 +347,7 @@
                             <!-- Emoji Mood Picker -->
                             <div>
                                 <label class="block text-xs font-semibold text-gray-400 mb-2">Mood / Kondisi Mental Hari Ini</label>
-                                <div class="grid grid-cols-5 gap-2" id="mood-picker-container">
+                                <div class="grid grid-cols-5 gap-1.5" id="mood-picker-container">
                                     <button type="button" onclick="selectMood('HAPPY')" class="py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-lg transition-all cursor-pointer border border-transparent" title="Sangat Baik & Optimis" id="mood-HAPPY">😊</button>
                                     <button type="button" onclick="selectMood('CALM')" class="py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-lg transition-all cursor-pointer border border-transparent" title="Fokus & Tenang" id="mood-CALM">😐</button>
                                     <button type="button" onclick="selectMood('TIRED')" class="py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-lg transition-all cursor-pointer border border-transparent" title="Lelah / Ngantuk" id="mood-TIRED">😴</button>
@@ -351,16 +357,16 @@
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1" for="mindset-sleep">Durasi Tidur (Jam)</label>
+                                    <label class="block text-[10px] sm:text-xs font-semibold text-gray-400 mb-1" for="mindset-sleep">Durasi Tidur (Jam)</label>
                                     <input type="number" step="0.5" id="mindset-sleep" placeholder="Misal: 7" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1" for="mindset-focus">Tingkat Fokus (1-10)</label>
+                                    <label class="block text-[10px] sm:text-xs font-semibold text-gray-400 mb-1" for="mindset-focus">Tingkat Fokus (1-10)</label>
                                     <input type="number" min="1" max="10" id="mindset-focus" placeholder="1-10" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1" for="mindset-notes">Catatan & Refleksi Psikologi Harian</label>
+                                <label class="block text-[10px] sm:text-xs font-semibold text-gray-400 mb-1" for="mindset-notes">Catatan & Refleksi Psikologi Harian</label>
                                 <textarea id="mindset-notes" rows="3" placeholder="Bagaimana kondisi pikiranmu hari ini? Adakah emosi balas dendam (revenge trading) atau FOMO?" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500 resize-none"></textarea>
                             </div>
                             <button type="submit" id="mindset-submit-btn" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-98 text-white font-bold text-xs rounded-xl transition-all cursor-pointer">
@@ -370,7 +376,7 @@
                     </div>
 
                     <!-- List of mental logs -->
-                    <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder shadow-xl flex flex-col max-h-[400px]">
+                    <div class="bg-darkCard p-5 rounded-2xl border border-darkBorder shadow-xl flex flex-col max-h-[350px]">
                         <h4 class="text-xs font-bold text-gray-300 uppercase mb-3 tracking-wider">Riwayat Check-in Mental</h4>
                         <div id="mental-logs-list" class="space-y-3 overflow-y-auto pr-1 flex-1">
                             <!-- Diisi lewat JS -->
@@ -381,9 +387,9 @@
                 <!-- Right Column: AI Coach & Interactive Guide -->
                 <div class="space-y-6 lg:col-span-2">
                     <!-- AI Trading Psychology Coach -->
-                    <div class="bg-darkCard p-6 rounded-2xl border border-darkBorder shadow-xl flex flex-col space-y-4">
+                    <div class="bg-darkCard p-5 sm:p-6 rounded-2xl border border-darkBorder shadow-xl flex flex-col space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-sm font-bold text-gray-100 uppercase tracking-wider flex items-center space-x-2">
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-100 uppercase tracking-wider flex items-center space-x-2">
                                 <i class="fa-solid fa-user-doctor text-indigo-400"></i>
                                 <span>AI Trading Psychology Coach (Gemini)</span>
                             </h3>
@@ -393,14 +399,14 @@
                         
                         <!-- Gemini API Key Input -->
                         <div class="bg-slate-800/40 border border-darkBorder/60 p-3.5 rounded-xl space-y-2">
-                            <div class="flex items-center justify-between">
-                                <label class="text-xs font-semibold text-gray-300 flex items-center space-x-1.5">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                                <label class="text-[10px] sm:text-xs font-semibold text-gray-300 flex items-center space-x-1.5">
                                     <i class="fa-solid fa-key text-[10px] text-amber-400"></i>
                                     <span>API Key Gemini Anda (Disimpan Lokal)</span>
                                 </label>
                                 <a href="https://aistudio.google.com/" target="_blank" class="text-[9px] text-indigo-400 hover:underline">Dapatkan Key Gratis</a>
                             </div>
-                            <div class="flex gap-2">
+                            <div class="flex flex-col sm:flex-row gap-2">
                                 <input type="password" id="gemini-key-input" placeholder="Masukkan API Key Gemini Anda..." class="flex-1 px-3 py-1.5 bg-slate-900 border border-darkBorder/80 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-indigo-500">
                                 <button onclick="saveGeminiKey()" class="px-4 py-1.5 bg-indigo-500 hover:bg-indigo-600 rounded-xl text-xs font-bold text-white transition-colors cursor-pointer">Simpan</button>
                             </div>
@@ -420,8 +426,8 @@
                     </div>
 
                     <!-- CBT Reframing Tools -->
-                    <div class="bg-darkCard p-6 rounded-2xl border border-darkBorder shadow-xl space-y-4">
-                        <h3 class="text-sm font-bold text-gray-100 uppercase tracking-wider flex items-center space-x-2">
+                    <div class="bg-darkCard p-5 sm:p-6 rounded-2xl border border-darkBorder shadow-xl space-y-4">
+                        <h3 class="text-xs sm:text-sm font-bold text-gray-100 uppercase tracking-wider flex items-center space-x-2">
                             <i class="fa-solid fa-arrows-spin text-teal-400"></i>
                             <span>CBT Cognitive Reframing Tool</span>
                         </h3>
@@ -441,11 +447,11 @@
                             <!-- Populated dynamically -->
                             <div class="bg-rose-500/10 border border-rose-500/20 p-4 rounded-xl">
                                 <h4 class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Pola Pikir Salah (Distorsi Kognitif)</h4>
-                                <p id="cbt-wrong-thought" class="text-xs text-gray-300 leading-relaxed">"Saya harus masuk di trade ini sekarang juga! Jika tidak, momentum geraknya akan hilang dan saya tidak akan kaya hari ini."</p>
+                                <p id="cbt-wrong-thought" class="text-xs text-gray-300 leading-relaxed"></p>
                             </div>
                             <div class="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl">
                                 <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Pola Pikir Profesional (Reframing)</h4>
-                                <p id="cbt-right-thought" class="text-xs text-gray-300 leading-relaxed">"Sinyal kriteria saya belum valid seutuhnya. Market akan selalu menyediakan setup-setup yang baru besok pagi. Kehilangan satu trade lebih baik daripada kehilangan uang riil."</p>
+                                <p id="cbt-right-thought" class="text-xs text-gray-300 leading-relaxed"></p>
                             </div>
                         </div>
                     </div>
@@ -455,15 +461,15 @@
 
         <!-- Footer Section -->
         <footer class="mt-auto border-t border-darkBorder/80 bg-darkCard/50 py-4 px-4 text-center">
-            <p class="text-xs text-gray-500">&copy; 2026 Trading Journal Pro. Menggunakan Firebase Firestore, Storage, dan Google Gemini API.</p>
+            <p class="text-[10px] sm:text-xs text-gray-500">&copy; 2026 Trading Journal Pro. Menggunakan Firebase Firestore, Storage, dan Google Gemini API.</p>
         </footer>
     </div>
 
     <!-- Modal Dialog Tambah / Edit Catatan Trade -->
     <div id="trade-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-darkCard border border-darkBorder w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl transition-all scale-95 duration-200 flex flex-col max-h-[90vh]">
-            <div class="p-5 border-b border-darkBorder/60 flex justify-between items-center">
-                <h3 id="modal-title" class="text-base font-bold text-gray-100 flex items-center space-x-2">
+        <div class="bg-darkCard border border-darkBorder w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl transition-all scale-95 duration-200 flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-5 border-b border-darkBorder/60 flex justify-between items-center">
+                <h3 id="modal-title" class="text-sm sm:text-base font-bold text-gray-100 flex items-center space-x-2">
                     <i class="fa-solid fa-file-invoice-dollar text-emerald-400"></i>
                     <span>Catat Trade Baru</span>
                 </h3>
@@ -473,10 +479,10 @@
             </div>
 
             <!-- Form Body Container -->
-            <form id="trade-form" onsubmit="saveTrade(event)" class="p-5 space-y-4 overflow-y-auto flex-1">
+            <form id="trade-form" onsubmit="saveTrade(event)" class="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1 text-xs">
                 <input type="hidden" id="trade-id">
                 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1" for="trade-asset">Pair / Aset *</label>
                         <input type="text" id="trade-asset" required placeholder="Contoh: XAUUSD, EURUSD, BTC" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
@@ -490,7 +496,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1" for="trade-entry">Harga Entry *</label>
                         <input type="number" step="any" id="trade-entry" required placeholder="0.00" oninput="autoCalculatePnL()" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
@@ -501,7 +507,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1" for="trade-tp">Target Profit (TP)</label>
                         <input type="number" step="any" id="trade-tp" placeholder="0.00" oninput="autoCalculatePnL()" class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
@@ -512,7 +518,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1" for="trade-date">Waktu Transaksi *</label>
                         <input type="datetime-local" id="trade-date" required class="w-full px-3 py-2 bg-slate-800 border border-darkBorder rounded-xl text-xs text-gray-100 focus:outline-none focus:border-indigo-500">
@@ -529,12 +535,12 @@
                 </div>
 
                 <!-- Atribut Mental Emosi & Disiplin -->
-                <div class="bg-slate-800/20 p-3.5 border border-darkBorder rounded-xl space-y-3">
-                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider">Kondisi Mental & Kedisiplinan</h4>
-                    <div class="grid grid-cols-3 gap-2">
+                <div class="bg-slate-800/20 p-3 sm:p-3.5 border border-darkBorder rounded-xl space-y-3">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-wider">Kondisi Mental & Kedisiplinan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <div>
-                            <label class="block text-[10px] text-gray-400 mb-1">Sebelum Entry</label>
-                            <select id="trade-emotion-before" class="w-full p-1.5 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
+                            <label class="block text-[9px] text-gray-400 mb-1">Sebelum Entry</label>
+                            <select id="trade-emotion-before" class="w-full p-2 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
                                 <option value="CALM">🙂 Tenang & Sabar</option>
                                 <option value="FOMO">⚡ FOMO (Takut Telat)</option>
                                 <option value="IMPATIENT">⏳ Bosan & Terburu</option>
@@ -543,8 +549,8 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-[10px] text-gray-400 mb-1">Saat Menahan</label>
-                            <select id="trade-emotion-during" class="w-full p-1.5 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
+                            <label class="block text-[9px] text-gray-400 mb-1">Saat Menahan</label>
+                            <select id="trade-emotion-during" class="w-full p-2 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
                                 <option value="FOCUSED">🧘 Fokus & Dingin</option>
                                 <option value="ANXIOUS">📈 Gelisah / Was-Was</option>
                                 <option value="HOPE">🤞 Berharap / Pasrah</option>
@@ -553,8 +559,8 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-[10px] text-gray-400 mb-1">Setelah Selesai</label>
-                            <select id="trade-emotion-after" class="w-full p-1.5 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
+                            <label class="block text-[9px] text-gray-400 mb-1">Setelah Selesai</label>
+                            <select id="trade-emotion-after" class="w-full p-2 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
                                 <option value="SATISFIED">😌 Puas Patuhi Rule</option>
                                 <option value="RELIEVED">😮 Lega / Untung</option>
                                 <option value="REVENGE">😡 Emosi Balas Dendam</option>
@@ -565,12 +571,12 @@
                     </div>
                     <div>
                         <label class="block text-[10px] text-gray-400 mb-1">Tingkat Kepatuhan Aturan / Disiplin Trading (1-5)</label>
-                        <select id="trade-discipline" class="w-full p-1.5 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
+                        <select id="trade-discipline" class="w-full p-2 bg-slate-800 border border-darkBorder rounded text-[10px] text-gray-100 focus:outline-none cursor-pointer">
                             <option value="5">⭐⭐⭐⭐⭐ 100% Patuh Sesuai Trading Plan</option>
                             <option value="4">⭐⭐⭐⭐ Melanggar Aturan Kecil (Ex: Lot Agak Besar)</option>
                             <option value="3">⭐⭐⭐ Setengah Patuh (Entry Valid, Exit Manual Mendadak)</option>
                             <option value="2">⭐⭐ Melanggar Aturan Besar (Ex: Geser-Geser SL)</option>
-                            <option value="1">⭐ 0% Tidak Disiplin (Gamble / Trading Buta)</option>
+                            <option value="1">⭐ 0% Tidak Disiplin (Gamble / Trading Plan Buta)</option>
                         </select>
                     </div>
                 </div>
@@ -639,27 +645,127 @@
         </div>
     </div>
 
+    <!-- Modal Detail Pembelajaran Trade (Review Detail) -->
+    <div id="detail-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-darkCard border border-darkBorder w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl transition-all scale-95 duration-200 flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-5 border-b border-darkBorder/60 flex justify-between items-center">
+                <h3 class="text-sm sm:text-base font-bold text-gray-100 flex items-center space-x-2">
+                    <i class="fa-solid fa-graduation-cap text-indigo-400"></i>
+                    <span>Review Detail & Pembelajaran</span>
+                </h3>
+                <button onclick="closeDetailModal()" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1 text-xs text-gray-300">
+                <!-- Header Status Trade -->
+                <div class="flex items-center justify-between bg-slate-900/50 p-3 rounded-xl border border-darkBorder">
+                    <div>
+                        <span id="detail-asset" class="text-base font-extrabold text-white">BTCUSDT</span>
+                        <span id="detail-type-size" class="ml-2 px-2 py-0.5 bg-slate-800 rounded text-[9px] font-bold text-gray-400">LONG (0.1 Lot)</span>
+                    </div>
+                    <span id="detail-pnl" class="text-sm font-extrabold text-emerald-400">+$250.00</span>
+                </div>
+
+                <!-- Detail Parameter Teknikal -->
+                <div class="grid grid-cols-3 gap-2 bg-slate-800/20 p-3 rounded-xl border border-darkBorder/40 text-[10px] sm:text-xs">
+                    <div>
+                        <span class="block text-gray-500 font-semibold mb-0.5">Harga Entry</span>
+                        <span id="detail-entry-price" class="font-mono text-gray-200">-</span>
+                    </div>
+                    <div>
+                        <span class="block text-gray-500 font-semibold mb-0.5">Target Profit (TP)</span>
+                        <span id="detail-tp-price" class="font-mono text-emerald-400">-</span>
+                    </div>
+                    <div>
+                        <span class="block text-gray-500 font-semibold mb-0.5">Stop Loss (SL)</span>
+                        <span id="detail-sl-price" class="font-mono text-rose-400">-</span>
+                    </div>
+                </div>
+
+                <!-- Detail Waktu -->
+                <div class="text-[10px] sm:text-xs text-gray-400">
+                    <i class="fa-regular fa-clock mr-1"></i> Waktu Transaksi: <span id="detail-date" class="font-mono text-gray-200">20 Mei 2026 14:30</span>
+                </div>
+
+                <!-- Screenshot Multi-TF Grid -->
+                <div class="space-y-1.5">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">Dokumen Multi-TF Chart</h4>
+                    <div id="detail-images-grid" class="grid grid-cols-3 gap-2">
+                        <!-- Dipopulasikan via JS -->
+                    </div>
+                </div>
+
+                <!-- Detail Psikologi & Disiplin -->
+                <div class="bg-slate-800/20 p-3 rounded-xl border border-darkBorder/40 space-y-2 text-[10px] sm:text-xs">
+                    <div class="flex justify-between border-b border-darkBorder/30 pb-1.5">
+                        <span class="text-gray-400">Kedisiplinan Trading:</span>
+                        <div id="detail-stars" class="flex"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center text-[9px] sm:text-[10px]">
+                        <div>
+                            <span class="block text-gray-500 mb-0.5">Sebelum Entry</span>
+                            <span id="detail-emo-before" class="font-bold text-gray-200">-</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500 mb-0.5">Saat Menahan</span>
+                            <span id="detail-emo-during" class="font-bold text-gray-200">-</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500 mb-0.5">Setelah Selesai</span>
+                            <span id="detail-emo-after" class="font-bold text-gray-200">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catatan Pembelajaran User -->
+                <div class="space-y-1">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">Alasan Setup & Analisis</h4>
+                    <p id="detail-notes" class="bg-slate-900/40 border border-darkBorder/40 p-3 rounded-xl text-[10px] sm:text-xs text-gray-300 italic whitespace-pre-wrap leading-relaxed">-</p>
+                </div>
+
+                <!-- AI Review Feedback Panel -->
+                <div class="border-t border-darkBorder/50 pt-3 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-[10px] sm:text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center space-x-1">
+                            <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
+                            <span>Ulasan Analisis Kognitif AI Coach</span>
+                        </h4>
+                        <button onclick="requestSingleTradeAIReview()" id="detail-ai-btn" class="px-2.5 py-1 bg-indigo-500 hover:bg-indigo-600 active:scale-95 text-white text-[9px] font-bold rounded-lg cursor-pointer flex items-center space-x-1.5">
+                            <i class="fa-solid fa-wand-magic-sparkles text-[8px]"></i>
+                            <span>Dapatkan Ulasan AI</span>
+                        </button>
+                    </div>
+                    <div id="detail-ai-feedback" class="bg-slate-950 border border-darkBorder p-3 rounded-xl text-[10px] sm:text-xs font-mono text-indigo-300 leading-relaxed max-h-36 overflow-y-auto">
+                        Klik tombol di atas untuk menganalisis trade ini secara psikologis & teknis...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Lightbox Modal for Fullscale Image Viewer -->
     <div id="lightbox-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] flex items-center justify-center p-4 hidden" onclick="closeLightbox()">
-        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-gray-400 hover:text-white transition-colors cursor-pointer text-2xl z-20">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors cursor-pointer text-xl z-20">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <!-- Prev Button -->
-        <button id="lightbox-prev" onclick="navigateLightbox(-1); event.stopPropagation();" class="absolute left-5 top-1/2 -translate-y-1/2 bg-slate-800/60 hover:bg-slate-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors hidden z-20">
-            <i class="fa-solid fa-chevron-left"></i>
+        <button id="lightbox-prev" onclick="navigateLightbox(-1); event.stopPropagation();" class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 bg-slate-800/60 hover:bg-slate-800 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors hidden z-20">
+            <i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i>
         </button>
         <!-- Next Button -->
-        <button id="lightbox-next" onclick="navigateLightbox(1); event.stopPropagation();" class="absolute right-5 top-1/2 -translate-y-1/2 bg-slate-800/60 hover:bg-slate-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors hidden z-20">
-            <i class="fa-solid fa-chevron-right"></i>
+        <button id="lightbox-next" onclick="navigateLightbox(1); event.stopPropagation();" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 bg-slate-800/60 hover:bg-slate-800 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-colors hidden z-20">
+            <i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i>
         </button>
         <div class="max-w-4xl max-h-[85vh] overflow-hidden rounded-xl border border-darkBorder/60 shadow-2xl relative" onclick="event.stopPropagation()">
-            <img id="lightbox-img" src="" alt="High Resolution Chart" class="max-w-full max-h-[80vh] object-contain">
-            <div id="lightbox-counter" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/80 border border-darkBorder/50 text-[10px] text-gray-300 px-3 py-1 rounded-full font-mono">1 / 1</div>
+            <img id="lightbox-img" src="" alt="High Resolution Chart" class="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain">
+            <div id="lightbox-counter" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/80 border border-darkBorder/50 text-[9px] sm:text-[10px] text-gray-300 px-3 py-1 rounded-full font-mono">1 / 1</div>
         </div>
     </div>
 
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-[90vw]"></div>
 
     <!-- Custom Dialog Delete Modal -->
     <div id="delete-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
@@ -732,7 +838,7 @@
             deleteObject
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
-        // FIX CRITICAL BUG: Mendeklarasikan seluruh state global secara lengkap dan benar untuk mencegah JS Crash
+        // Mendeklarasikan seluruh state global secara lengkap dan benar untuk mencegah JS Crash
         let appId = typeof __app_id !== 'undefined' ? __app_id : 'default-trading-app';
         let db = null;
         let auth = null;
@@ -752,11 +858,11 @@
         let currentAuthMode = 'login'; 
         let selectedImageFiles = []; // Array jamak untuk menampung data multi-TF lokal baru
         let currentTradeImages = []; // Array jamak untuk menampung data gambar cloud yang sudah ada
-        let imagesToDelete = []; // State global untuk daftar chart cloud yang akan dihapus
         let activeMainTab = 'dashboard'; 
         let selectedMoodState = '';
         let lightboxImages = []; 
         let lightboxIndex = 0; 
+        let activeDetailTradeId = null; 
 
         // Konfigurasi Database Firebase milik pengguna
         let firebaseConfig = {
@@ -875,13 +981,13 @@
             if (tabName === 'dashboard') {
                 dashContent.classList.remove('hidden');
                 mindContent.classList.add('hidden');
-                btnDash.className = "px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer";
-                btnMind.className = "px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer";
+                btnDash.className = "px-2.5 sm:px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer";
+                btnMind.className = "px-2.5 sm:px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer";
             } else {
                 dashContent.classList.add('hidden');
                 mindContent.classList.remove('hidden');
-                btnDash.className = "px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer";
-                btnMind.className = "px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer";
+                btnDash.className = "px-2.5 sm:px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer";
+                btnMind.className = "px-2.5 sm:px-3.5 py-1.5 rounded-lg text-emerald-400 bg-darkCard border border-darkBorder/40 transition-all cursor-pointer";
             }
         };
 
@@ -1059,7 +1165,7 @@
             // Inject to DOM
             const pnlEl = document.getElementById('stat-net-pnl');
             pnlEl.textContent = (totalPnL >= 0 ? '+' : '') + formatCurrency(totalPnL);
-            pnlEl.className = totalPnL >= 0 ? "text-xl md:text-2xl font-bold text-emerald-400" : "text-xl md:text-2xl font-bold text-rose-400";
+            pnlEl.className = totalPnL >= 0 ? "text-lg sm:text-xl md:text-2xl font-bold text-emerald-400" : "text-lg sm:text-xl md:text-2xl font-bold text-rose-400";
 
             const growthPercentage = initialEquity > 0 ? ((totalPnL / initialEquity) * 100).toFixed(2) : "0.00";
             document.getElementById('stat-pnl-percentage').textContent = `${growthPercentage}% growth`;
@@ -1168,6 +1274,7 @@
             });
         }
 
+        // Render tabel data riwayat transaksi
         function renderTable(trades) {
             const tableBody = document.getElementById('trade-table-body');
             tableBody.innerHTML = '';
@@ -1194,19 +1301,19 @@
                 let statusLabel = trade.status;
 
                 if (trade.status === 'WIN') {
-                    pnlClass = "text-emerald-400 text-right font-bold";
+                    pnlClass = "text-emerald-400 text-right font-bold font-mono";
                     badgeClass = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
                     statusLabel = "WIN";
                 } else if (trade.status === 'LOSS') {
-                    pnlClass = "text-rose-400 text-right font-bold";
+                    pnlClass = "text-rose-400 text-right font-bold font-mono";
                     badgeClass = "bg-rose-500/10 text-rose-400 border border-rose-500/20";
                     statusLabel = "LOSS";
                 } else if (trade.status === 'BE') {
-                    pnlClass = "text-gray-400 text-right font-semibold";
+                    pnlClass = "text-gray-400 text-right font-semibold font-mono";
                     badgeClass = "bg-slate-700/50 text-slate-300 border border-slate-600/20";
                     statusLabel = "BE";
                 } else if (trade.status === 'OPEN') {
-                    pnlClass = pnlValue >= 0 ? "text-emerald-500/80 text-right italic" : "text-rose-500/80 text-right italic";
+                    pnlClass = pnlValue >= 0 ? "text-emerald-500/80 text-right italic font-mono" : "text-rose-500/80 text-right italic font-mono";
                     badgeClass = "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 animate-pulse";
                     statusLabel = "OPEN";
                 }
@@ -1281,7 +1388,7 @@
                 tr.innerHTML = `
                     <td class="py-3 px-5 text-gray-400 text-[11px] font-mono whitespace-nowrap">${formattedDate}</td>
                     <td class="py-3 px-5 font-bold text-gray-100">${trade.asset.toUpperCase()}</td>
-                    <td class="py-3 px-5">
+                    <td class="py-3 px-5 font-semibold">
                         <span class="px-2 py-0.5 rounded text-[10px] font-bold ${trade.type === 'LONG' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'}">
                             ${trade.type}
                         </span>
@@ -1300,11 +1407,14 @@
                     </td>
                     <td class="py-3 px-5 text-center">
                         <div class="flex items-center justify-center space-x-2">
-                            <button onclick="editTrade('${trade.id}')" title="Edit Trade" class="text-gray-400 hover:text-indigo-400 hover:bg-slate-800 p-1.5 rounded-lg transition-colors cursor-pointer">
-                                <i class="fa-solid fa-pen text-[10px]"></i>
+                            <button onclick="viewTradeDetail('${trade.id}')" title="Review Pembelajaran" class="text-gray-400 hover:text-emerald-400 hover:bg-slate-800 p-2 rounded-lg transition-colors cursor-pointer">
+                                <i class="fa-solid fa-eye text-xs"></i>
                             </button>
-                            <button onclick="openDeleteConfirm('${trade.id}', 'trade')" title="Hapus Trade" class="text-gray-400 hover:text-rose-500 hover:bg-slate-800 p-1.5 rounded-lg transition-colors cursor-pointer">
-                                <i class="fa-solid fa-trash-can text-[10px]"></i>
+                            <button onclick="editTrade('${trade.id}')" title="Edit Trade" class="text-gray-400 hover:text-indigo-400 hover:bg-slate-800 p-2 rounded-lg transition-colors cursor-pointer">
+                                <i class="fa-solid fa-pen text-xs"></i>
+                            </button>
+                            <button onclick="openDeleteConfirm('${trade.id}', 'trade')" title="Hapus Trade" class="text-gray-400 hover:text-rose-500 hover:bg-slate-800 p-2 rounded-lg transition-colors cursor-pointer">
+                                <i class="fa-solid fa-trash-can text-xs"></i>
                             </button>
                         </div>
                     </td>
@@ -1446,7 +1556,7 @@
             const imgObj = currentTradeImages[idx];
 
             if (!window.imagesToDelete) window.imagesToDelete = [];
-            window.imagesToDelete.push(imgObj.path); // Tandai path cloud untuk dihapus dari Storage saat klik Simpan
+            window.imagesToDelete.push(imgObj.path); 
 
             currentTradeImages.splice(idx, 1);
             renderImagePreviews();
@@ -1709,7 +1819,6 @@
             }
         };
 
-        // FIX CRITICAL BUG: Memastikan seluruh global state dideklarasikan di awal script dan di-reset dengan benar saat edit
         window.editTrade = function(id) {
             const target = rawTradesList.find(t => t.id === id);
             if (!target) return;
@@ -1757,6 +1866,131 @@
             `;
 
             document.getElementById('trade-modal').classList.remove('hidden');
+        };
+
+        // View Trade Detail Modal (Post-Mortem Review)
+        window.viewTradeDetail = function(id) {
+            const trade = rawTradesList.find(t => t.id === id);
+            if (!trade) return;
+
+            activeDetailTradeId = id;
+
+            // Isi informasi teks dasar
+            document.getElementById('detail-asset').textContent = trade.asset.toUpperCase();
+            document.getElementById('detail-type-size').textContent = `${trade.type} (${trade.size || 0} Lot)`;
+            
+            const pnlVal = parseFloat(trade.pnl) || 0;
+            const pnlEl = document.getElementById('detail-pnl');
+            pnlEl.textContent = (pnlVal >= 0 ? '+' : '') + formatCurrency(pnlVal);
+            pnlEl.className = pnlVal >= 0 ? "text-sm font-extrabold text-emerald-400" : "text-sm font-extrabold text-rose-400";
+
+            document.getElementById('detail-entry-price').textContent = trade.entryPrice ? formatRawNum(trade.entryPrice) : '-';
+            document.getElementById('detail-tp-price').textContent = trade.tpPrice ? formatRawNum(trade.tpPrice) : '-';
+            document.getElementById('detail-sl-price').textContent = trade.slPrice ? formatRawNum(trade.slPrice) : '-';
+            document.getElementById('detail-date').textContent = formatDateTime(trade.date);
+            document.getElementById('detail-notes').textContent = trade.notes || 'Tidak ada catatan analisis ditulis.';
+            document.getElementById('detail-ai-feedback').textContent = "Klik tombol di atas untuk menganalisis trade ini secara psikologis & teknis...";
+
+            // Skor disiplin (Visual Bintang)
+            const starsContainer = document.getElementById('detail-stars');
+            starsContainer.innerHTML = '';
+            const discipline = parseInt(trade.discipline) || 5;
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('i');
+                star.className = i <= discipline ? "fa-solid fa-star text-xs text-amber-400 mr-0.5" : "fa-regular fa-star text-xs text-gray-600 mr-0.5";
+                starsContainer.appendChild(star);
+            }
+
+            // Emosi 3 Fase
+            const emoBeforeMap = { 'CALM': '🙂 Tenang & Sabar', 'FOMO': '⚡ FOMO (Takut Telat)', 'IMPATIENT': '⏳ Bosan & Terburu', 'GREED': '🤑 Serakah', 'FEAR': '😰 Takut / Ragu' };
+            const emoDuringMap = { 'FOCUSED': '🧘 Fokus & Dingin', 'ANXIOUS': '📈 Gelisah / Was-Was', 'HOPE': '🤞 Berharap / Pasrah', 'PANIC': '😱 Panik (Sering Ganti)', 'OVERCONFIDENT': '😎 Terlalu Pede' };
+            const emoAfterMap = { 'SATISFIED': '😌 Puas Patuhi Rule', 'RELIEVED': '😮 Lega / Untung', 'REVENGE': '😡 Emosi Balas Dendam', 'REGRET': '😔 Menyesal / Kecewa', 'DISAPPOINTED': '😢 Sedih / Menyerah' };
+
+            document.getElementById('detail-emo-before').textContent = emoBeforeMap[trade.emotionBefore || 'CALM'];
+            document.getElementById('detail-emo-during').textContent = emoDuringMap[trade.emotionDuring || 'FOCUSED'];
+            document.getElementById('detail-emo-after').textContent = emoAfterMap[trade.emotionAfter || 'SATISFIED'];
+
+            // Grid screenshots multi-TF
+            const grid = document.getElementById('detail-images-grid');
+            grid.innerHTML = '';
+            const tradeImages = trade.images || (trade.imageUrl ? [{ url: trade.imageUrl, path: trade.imageStoragePath }] : []);
+
+            if (tradeImages.length === 0) {
+                grid.innerHTML = `<p class="text-[11px] text-gray-500 italic col-span-3">Tidak ada screenshot chart dilampirkan.</p>`;
+            } else {
+                tradeImages.forEach((imgObj, idx) => {
+                    const div = document.createElement('div');
+                    div.className = "relative h-20 rounded-xl overflow-hidden border border-darkBorder bg-slate-900 group cursor-pointer hover:border-indigo-500 transition-all";
+                    div.innerHTML = `
+                        <img src="${imgObj.url}" class="w-full h-full object-cover">
+                        <span class="absolute bottom-1 right-1 bg-black/75 text-[8px] text-gray-400 px-1 rounded">Chart ${idx + 1}</span>
+                    `;
+                    div.onclick = () => openLightboxForTrade(id, idx);
+                    grid.appendChild(div);
+                });
+            }
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        };
+
+        window.closeDetailModal = function() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            activeDetailTradeId = null;
+        };
+
+        // Single Trade AI Analyzer (Review khusus satu transaksi untuk pembelajaran)
+        window.requestSingleTradeAIReview = async function() {
+            if (!activeDetailTradeId) return;
+            const trade = rawTradesList.find(t => t.id === activeDetailTradeId);
+            if (!trade) return;
+
+            if (!userGeminiApiKey) {
+                showToast("Harap masukkan API Key Gemini Anda di tab Mindset & Emosi terlebih dahulu.", "error");
+                return;
+            }
+
+            const btn = document.getElementById('detail-ai-btn');
+            const feedbackBox = document.getElementById('detail-ai-feedback');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin text-[10px]"></i> Menganalisis...`;
+            feedbackBox.innerHTML = "Menghubungi AI Coach untuk membedah data teknis & psikologis trade ini...";
+
+            const tradeStr = `Aset: ${trade.asset}, Posisi: ${trade.type}, Entry: ${trade.entryPrice}, TP: ${trade.tpPrice}, SL: ${trade.slPrice}, Hasil P&L: $${parseFloat(trade.pnl).toFixed(2)}, Emosi Sebelum: ${trade.emotionBefore}, Saat Holding: ${trade.emotionDuring}, Selesai: ${trade.emotionAfter}, Disiplin: ${trade.discipline}/5, Catatan: ${trade.notes}`;
+
+            const systemPrompt = "Anda adalah Coach Trading kognitif perilaku (CBT). Berikan analisis kilat (maksimal 2-3 kalimat tajam) mengenai trade spesifik ini. Evaluasi apakah emosi yang dialami mempengaruhi hasil, dan beri 1 tips belajar konkret agar trade berikutnya lebih berkualitas.";
+            const userPrompt = `Coach, berikan evaluasi belajar untuk trade ini:\n\n${tradeStr}`;
+
+            try {
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${userGeminiApiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: userPrompt }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error("Gagal mengambil feedback AI.");
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                    feedbackBox.innerHTML = text.replace(/\n/g, '<br>');
+                    showToast("Ulasan belajar AI berhasil dimuat!", "success");
+                } else {
+                    throw new Error("Respon kosong.");
+                }
+            } catch (err) {
+                console.error(err);
+                feedbackBox.innerHTML = `<span class="text-rose-400">Gagal memuat feedback AI. Pastikan API Key di tab Mindset & Emosi sudah valid.</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles text-[9px]"></i><span>Dapatkan Ulasan AI</span>`;
+            }
         };
 
         // Delete confirmation custom flow
